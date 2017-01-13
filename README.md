@@ -12,11 +12,25 @@ for much cleaner code.
   4. change the database parameters in model.php 
   
 ## These are the functions you can use
-  db::clean($string);  -> escapes the string
-	db::looper($query);  -> returns an array
-	db::get($column,$query);  -> returns a specific column in database
-	db::json($query);  -> returns json array
-	db::counts($query);  -> count sql results
-	db::udi($query);  -> update,delete,insert function returns boolean 1 = success , 0 = error
-	db::redirect($url);  -> redirects page 
-	db::out($url);  -> remove sessions
+  1. db::clean($string);  -> escapes the string
+  2. db::looper($query);  -> returns an array
+  3. db::get($column,$query);  -> returns a specific column in database
+  4. db::json($query);  -> returns json array
+  5. db::counts($query);  -> count sql results
+  6. db::udi($query);  -> update,delete,insert function returns boolean 1 = success , 0 = error
+  7. db::redirect($url);  -> redirects page 
+  8. db::out($url);  -> remove sessions
+  
+  
+## Example
+ 1. REQUEST URL =  model.php?ctrl=users
+ 2. ctrl.php 
+	class ctrl{ 
+		public static function users(){
+			return db::json("SELECT * FROM users");
+		}
+
+	  } 
+ 3. this will return a json array of users stored in the database.
+	
+
